@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b40vuvg5q7pc3"]
+[gd_scene load_steps=7 format=3 uid="uid://b40vuvg5q7pc3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_735ru"]
 [ext_resource type="PackedScene" uid="uid://cqyjrl045aa5l" path="res://player.tscn" id="2_aw62u"]
 [ext_resource type="PackedScene" uid="uid://cwfy5wgwcbk1r" path="res://spikes.tscn" id="3_u4kx5"]
+[ext_resource type="PackedScene" uid="uid://b743xktosrrhl" path="res://heart.tscn" id="4_byxek"]
+[ext_resource type="PackedScene" uid="uid://bbfyg55tpyt65" path="res://level_completed.tscn" id="5_k8wbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wxcw"]
 size = Vector2(16, 88)
@@ -33,6 +35,18 @@ offset_left = 248.0
 offset_right = 264.0
 offset_bottom = 88.0
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(256, 44)
+shape = SubResource("RectangleShape2D_3wxcw")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = 248.0
+offset_right = 264.0
+offset_bottom = 88.0
+
 [node name="Spikes" parent="." instance=ExtResource("3_u4kx5")]
 position = Vector2(152, 144)
 
@@ -44,3 +58,23 @@ position = Vector2(264, 136)
 
 [node name="Spikes4" parent="." instance=ExtResource("3_u4kx5")]
 position = Vector2(160, 144)
+
+[node name="Heart" parent="." instance=ExtResource("4_byxek")]
+position = Vector2(144, 104)
+
+[node name="Heart2" parent="." instance=ExtResource("4_byxek")]
+position = Vector2(288, 72)
+
+[node name="Heart3" parent="." instance=ExtResource("4_byxek")]
+position = Vector2(304, -8)
+
+[node name="Heart4" parent="." instance=ExtResource("4_byxek")]
+position = Vector2(32, 40)
+
+[node name="Heart5" parent="." instance=ExtResource("4_byxek")]
+position = Vector2(272, 32)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_k8wbk")]
+visible = false
