@@ -1,17 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://b40vuvg5q7pc3"]
+[gd_scene load_steps=5 format=3 uid="uid://b40vuvg5q7pc3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_735ru"]
 [ext_resource type="PackedScene" uid="uid://cqyjrl045aa5l" path="res://player.tscn" id="2_aw62u"]
+[ext_resource type="PackedScene" uid="uid://cwfy5wgwcbk1r" path="res://spikes.tscn" id="3_u4kx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wxcw"]
+size = Vector2(16, 88)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_735ru")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 16, 0, 16, 120, 64, 120, 88, 128, 120, 128, 136, 112, 152, 112, 152, 144, 176, 144, 176, 120, 200, 120, 200, 128, 232, 128, 256, 112, 280, 112, 280, 136, 296, 136, 296, 0, 320, 0, 320, 184, 0, 184)
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 120, 64, 120, 88, 128, 120, 128, 136, 112, 152, 112, 152, 144, 176, 144, 176, 120, 200, 120, 200, 128, 232, 128, 256, 112, 264, 112, 264, 136, 296, 136, 296, 0, 320, 0, 320, 184, 0, 184)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_aw62u")]
 position = Vector2(40, 72)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(256, 44)
+shape = SubResource("RectangleShape2D_3wxcw")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = 248.0
+offset_right = 264.0
+offset_bottom = 88.0
+
+[node name="Spikes" parent="." instance=ExtResource("3_u4kx5")]
+position = Vector2(152, 144)
+
+[node name="Spikes2" parent="." instance=ExtResource("3_u4kx5")]
+position = Vector2(280, 136)
+
+[node name="Spikes3" parent="." instance=ExtResource("3_u4kx5")]
+position = Vector2(264, 136)
+
+[node name="Spikes4" parent="." instance=ExtResource("3_u4kx5")]
+position = Vector2(160, 144)
