@@ -72,7 +72,7 @@ func apply_friction(input_axis, delta):
 		
 func apply_air_resistance(input_axis, delta):
 	if not input_axis and not is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, movement_data.air_resistance)
+		velocity.x = move_toward(velocity.x, 0, movement_data.air_resistance * delta)
 		
 func update_animations(input_axis):
 	if input_axis:

@@ -79,7 +79,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tvgw"]
-size = Vector2(10, 16)
+size = Vector2(8, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aufq7"]
 size = Vector2(8, 13)
@@ -88,6 +88,7 @@ size = Vector2(8, 13)
 collision_layer = 2
 floor_constant_speed = true
 floor_snap_length = 2.0
+safe_margin = 0.1
 script = ExtResource("1_q8k4q")
 movement_data = ExtResource("2_bhtaa")
 
